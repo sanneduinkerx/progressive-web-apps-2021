@@ -1,0 +1,25 @@
+{
+  "name": "progressive-web-apps-2021",
+  "version": "1.0.0",
+  "description": "Music API albums",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "scripts": {
+      "start": "node index.js",
+      "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanneduinkerx/progressive-web-apps-2021.git"
+  },
+  "author": "Sanne Duinker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanneduinkerx/progressive-web-apps-2021/issues"
+  },
+  "homepage": "https://github.com/sanneduinkerx/progressive-web-apps-2021#readme"
+}
