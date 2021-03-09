@@ -20,7 +20,7 @@ Goal: Render web pages server side
 - then npm install express --save -> to save to dependencies in package.json
 - add to index.js file:
 
-    '''
+    ```
     // module imported express
     const express = require('express')
 
@@ -39,7 +39,7 @@ Goal: Render web pages server side
     // log in terminal with message that de web server is running
     console.log('Example app listening at http://localhost:${port}')
     })
-    '''
+    ```
 - in command line node index.js or npm run start, to run web server 
 
 <!-- Document in your readme.md how you will get the server up and running; git clone && npm start -->
