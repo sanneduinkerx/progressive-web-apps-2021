@@ -7,7 +7,7 @@ In this course we will convert the client side web application previously made W
 Goal: Render web pages server side
 
 **TO DO LIST THIS WEEK:**
-- [ ] Get server up and running
+- [X] Get server up and running
 - [ ] Use template engine ejs for node application
 - [ ] Read into theory node.js and express, server side rendering
 - [ ] Render in server side
@@ -15,7 +15,32 @@ Goal: Render web pages server side
 **Plan of action:**
 *How to get server up and running*
 - download and install node.js - npm is included
+- npm install and node install
 - npm init -> make package.json 
+- then npm install express --save -> to save to dependencies in package.json
+- add to index.js file:
+
+    '''
+    // module imported express
+    const express = require('express')
+
+    const app = express()
+
+    //port to listen to in browser
+    const port = 3000
+
+    // starting page, req -> request and a respond
+    app.get('/', (req, res) => {
+    //sends response to browser
+    res.send('Hello World!!!')
+    })
+
+    app.listen(port, () => {
+    // log in terminal with message that de web server is running
+    console.log('Example app listening at http://localhost:${port}')
+    })
+    '''
+- in command line node index.js or npm run start, to run web server 
 
 <!-- Document in your readme.md how you will get the server up and running; git clone && npm start -->
 
