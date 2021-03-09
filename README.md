@@ -9,7 +9,8 @@ Goal: Render web pages server side
 **TO DO LIST THIS WEEK:**
 - [X] Get server up and running
 - [ ] Use template engine ejs for node application
-- [ ] Read into theory node.js and express, server side rendering
+- [ ] fetch data from API with node-fetch
+- [ ] Read into theory node.js and express, server side rendering with videos and articles
 - [ ] Render in server side
 
 **Plan of action:**

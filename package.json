@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/sanneduinkerx/progressive-web-apps-2021#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
   }
 }
-
