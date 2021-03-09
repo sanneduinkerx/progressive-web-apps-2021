@@ -28,17 +28,3 @@ app.listen(port, function () {
     // log in terminal with message
     console.log(`Example app listening at http://localhost:${port}`);
   })
-
-
-  //API URL:
-// const endpoint = 'https://ws.audioscrobbler.com/2.0/?method=';
-// const apiKey = '9445b881096d29d7c6de9f9d2eb6b50d';
-// const artistName = 'ACDC';
-// const method = 'artist.gettopalbums'; 
-// const url = `${endpoint}${method}&artist=${artistName}&api_key=${apiKey}&format=json`; 
-
-
-    // get albums from certain artist
-    // fetch(url)
-    //   .then(response => response.json())
-    //   .then(data => console.log(data.topalbums))
