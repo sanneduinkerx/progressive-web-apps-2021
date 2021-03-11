@@ -15,16 +15,23 @@ app.set('view engine', 'ejs');
 // the '/' is the path on server - when that route matches the function in the route gets executed
 app.get('/', function (req, res) {
     //sends response to browser
-    res.send('Hello World!!!'); 
+    res.send('Hello World!!!');  
   })
 
-// different path /overview path
+// different path /overview path 
 app.get('/albums', function (req, res) {
     // render will look in the views folder to show view to user
     res.render('albums');
+  }) 
+
+//path to details from one album
+app.get('/details', function (req, res) {
+    // render will look in the views folder to show view to user
+    res.render('details');
   }) 
 
 app.listen(port, function () {
     // log in terminal with message
     console.log(`Example app listening at http://localhost:${port}`);
   })
+ 

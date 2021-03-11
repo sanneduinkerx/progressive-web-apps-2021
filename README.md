@@ -2,16 +2,16 @@
 
 In this course we will convert the client side web application previously made Web App From Scratch into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Ultimately we are going to implement a series of optimisations to improve the performance of the application.  
 
-### Week 1 - Server Side Rendering 📡
+## API - LastFM
+...
 
-Goal: Render web pages server side
+### Week 1 - Server Side Rendering 📡
 
 **TO DO LIST THIS WEEK:**
 - [X] Get server up and running
-- [ ] Use template engine ejs for node application
+- [X] Use template engine ejs for node application
 - [ ] fetch data from API with node-fetch
-- [ ] Read into theory node.js and express, server side rendering with videos and articles
-- [ ] Render in server side
+- [X] Read into theory node.js and express, server side rendering with videos and articles
 
 **Plan of action:**
 *How to get server up and running*
