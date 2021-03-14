@@ -2,46 +2,49 @@
 
 In this course we will convert the client side web application previously made Web App From Scratch into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Ultimately we are going to implement a series of optimisations to improve the performance of the application.  
 
-## API - LastFM
-...
+## Web App - Album Libray 🎶
+Album Library is a web app where you can find albums from your favourite artists. You can find more information per album and the tracks from that album. It gives good feedback to the user with an error and loading state.
 
-### Week 1 - Server Side Rendering 📡
+<!-- Try it [here](https://sanneduinkerx.github.io/web-app-from-scratch-2021/). -->
 
-**TO DO LIST THIS WEEK:**
-- [X] Get server up and running
-- [X] Use template engine ejs for node application
-- [ ] fetch data from API with node-fetch
-- [X] Read into theory node.js and express, server side rendering with videos and articles
+From WAFS:
+![](https://user-images.githubusercontent.com/60745348/109557068-e3014280-7ad7-11eb-92cf-a8288a93ca1d.png)
+![](https://user-images.githubusercontent.com/60745348/109557105-ed234100-7ad7-11eb-9f9e-483464c93914.png)
 
-**Plan of action:**
-*How to get server up and running*
-- download and install node.js - npm is included
-- npm install and node install
-- npm init -> make package.json 
-- then npm install express --save -> to save to dependencies in package.json
-- add to index.js file:
+<!-- ### Web App Link 🔗
+You can find the web app [here](https://sanneduinkerx.github.io/web-app-from-scratch-2021/).  -->
 
-    ```
-    // module imported express
-    const express = require('express')
+### Wishlist:
+Things I want to add/change:
+- Make web app more user friendly and better design
+- refactor waterfall code to returning values
+- Loading state different in design and coding
+- A back link on detailpage to go back to search results from an artist
 
-    const app = express()
+### Process 📈
+The **process** of web app can be found [here](https://github.com/sanneduinkerx/progressive-web-apps-2021/wiki/Week-1---Server-Side-Rendering-%F0%9F%93%A1).
 
-    //port to listen to in browser
-    const port = 3000
+## API - LastFM 🎵
+I've chosen the LastFM API. 
+![](https://user-images.githubusercontent.com/60745348/107949699-f9ff4b00-6f95-11eb-9e98-a5ffa4456ba5.png)
+![](https://user-images.githubusercontent.com/60745348/111075209-2b146200-84e7-11eb-904d-84078385e15d.png)
 
-    // starting page, req -> request and a respond
-    app.get('/', (req, res) => {
-    //sends response to browser
-    res.send('Hello World!!!')
-    })
+The API has a lot off different methods, for example:
+- artist.GetTopAlbums
+- artist.GetTopTracks
+- album.getInfo
+- chart.getTopArtists
+- geo.GetTopTracks
 
-    app.listen(port, () => {
-    // log in terminal with message that de web server is running
-    console.log('Example app listening at http://localhost:${port}')
-    })
-    ```
-- in command line node index.js or npm run start, to run web server 
+I used, for my web app:
+- artist.GetTopAlbums
+- album.getInfo
+
+The tricky part about this API i found was that to get to the data you had to really get into the object because it was quiet nested, so to get the data i used: apiData.topalbums.album, to select the name of the album and img within there. 
+The api shows in total 50 albums per page, if asking for the albums from a specific artist.
+I also saw that some albums didn't always have an image cover or the names of the album weren't there, to fix that i filter those albums out. With album.getInfo more info was missing if i wanted info from the wiki, some albums didn't have that object and therefore i will use an error message to give feedback.
+
+More info about the API can be found [here](https://www.last.fm/api/intro). 
 
 <!-- Document in your readme.md how you will get the server up and running; git clone && npm start -->
 
