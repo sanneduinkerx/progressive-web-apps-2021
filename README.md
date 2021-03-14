@@ -1,6 +1,5 @@
 # Progressive Web Apps @cmda-minor-web · 20-21
-
-In this course we will convert the client side web application previously made Web App From Scratch into a server side rendered application. We also add functionalities based on the Service Worker and turn the application into a Progressive Web App. Ultimately we are going to implement a series of optimisations to improve the performance of the application.  
+Here I convert the client side web application from [web app from scratch](https://github.com/sanneduinkerx/web-app-from-scratch-2021) into a server side rendered application.
 
 ## Web App - Album Libray 🎶
 Album Library is a web app where you can find albums from your favourite artists. You can find more information per album and the tracks from that album. It gives good feedback to the user with an error and loading state.
