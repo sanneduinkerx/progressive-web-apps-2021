@@ -10,9 +10,6 @@ const port = 3000;
 //API URL:
 const endpoint = 'https://ws.audioscrobbler.com/2.0/?method=';
 const apiKey = '9445b881096d29d7c6de9f9d2eb6b50d';
-const artistName = 'ACDC';
-const method = 'artist.gettopalbums'; 
-const url = `${endpoint}${method}&artist=${artistName}&api_key=${apiKey}&format=json`; 
 
 // setting ejs as the view engine
 app.set('view engine', 'ejs');
@@ -22,32 +19,41 @@ app.set('view engine', 'ejs');
 //to serve static files such as css or images use this:
 app.use(express.static('public'));
 
+app.get('/', function (req, res) {
+  //sends response to browser
+  // res.send('Hello World!!!');  
+  res.render('home');
+})
+
 // starting page, req -> request and a respond
 // get -> an http request method
 // the '/' is the path on server - when that route matches the function in the route gets executed
+app.get('/results', function (req, res) {
 
-app.get('/test', function (req, res) {
-  //sends response to browser
-  res.send('Hello World!!!');  
-})
+  //method, getting top albums and filling url
+  const artistName = 'Queen';
+  const method = 'artist.gettopalbums'; 
+  const url = `${endpoint}${method}&artist=${artistName}&api_key=${apiKey}&format=json`; 
 
-// if '/' matches -> goes to starting page
-app.get('/', function (req, res) {
     // render will look in the views folder to show view to user
     // res.render('albums'); 
-    // get albums from certain artist
+
+    // fetch data with url, albums from a specific artist Queen
     fetch(url)
       .then(response => response.json())
       .then(data => {
         console.log(data.topalbums.album[0].name);
+         // render will look in the views folder to show view to user
         res.render('albums', {
-          title: data.topalbums.album[0].name
+          title: data.topalbums.album[0].name,
+          img: data.topalbums.album[0].image[2]['#text']
         })
       })
   }) 
 
 //path to details from one album, if path matches
-app.get('/details', function (req, res) {
+app.get('/details/:albumName', function (req, res) {
+
     // render will look in the views folder to show view to user
     res.render('details');
   }) 

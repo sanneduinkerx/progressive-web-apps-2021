@@ -78,3 +78,37 @@ header form button img {
 header p{
     display: none;
 }
+
+/* class on form - home page*/
+
+.searchForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.searchForm form input{
+    width: 20em;
+}
+
+.searchForm p{
+    display: inline;
+}
+
+.searchForm h1 {
+    font-size: 5em;
+}
+
+/* FOOTER */
+
+footer{ 
+    text-align: center;
+    /* source footer at bottom: https://www.freecodecamp.org/news/how-to-keep-your-footer-where-it-belongs-59c6aa05c59c/*/
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
