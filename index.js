@@ -5,7 +5,7 @@ const fetch = require('node-fetch'); // for usage: https://www.npmjs.com/package
 
 const app = express();
 //port to listen to in browser
-const port = 3000;
+const port = 3000; 
 
 //API URL:
 const endpoint = 'https://ws.audioscrobbler.com/2.0/?method=';
@@ -36,7 +36,7 @@ app.get('/results', function (req, res) {
   const method = 'artist.gettopalbums'; 
   const url = `${endpoint}${method}&artist=${artistName}&api_key=${apiKey}&format=json`; 
 
-  // fetch data with url, albums from a specific artist Queen
+  // fetch data with url, albums from a specific artist as example now Queen
   fetch(url)
     .then(response => response.json())
     .then(data => {
@@ -57,7 +57,6 @@ app.get('/details/:albumName', function (req, res) {
     //URL to fetch 
     // req.params.albumName -> parameter from path, the album name
     const url = `${endpoint}${methodGetinfo}&api_key=${apiKey}&artist=${artistName}&album=${req.params.albumName}&format=json`;
-    console.log(url)
      
     // fetch data with url, albums from a specific artist Queen
     fetch(url)
