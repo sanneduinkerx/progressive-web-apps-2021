@@ -26,6 +26,7 @@ app.use(express.static('public'));
 app.get('/', function (req, res) {
   //renders template home
   res.render('home');
+  //statisch inladen html from public -> search home page?
 })
 
 // new path for the results
@@ -50,12 +51,29 @@ app.get('/results', function (req, res) {
 
 //path to details from one album, if path matches
 app.get('/details/:albumName', function (req, res) {
-    // render will look in the views folder to show view to user
-    console.log('hi');
-    res.render('details');
-    // const method = 'album.getinfo'; 
-    // //URL to fetch 
-    // const url = `${endpoint}${method}&api_key=${apiKey}&artist=${artistName}&album=${albumName}&format=json`; 
+
+    // new methode in URL to get data
+    const methodGetinfo = 'album.getinfo'; 
+    //URL to fetch 
+    // req.params.albumName -> parameter from path, the album name
+    const url = `${endpoint}${methodGetinfo}&api_key=${apiKey}&artist=${artistName}&album=${req.params.albumName}&format=json`;
+    console.log(url)
+     
+    // fetch data with url, albums from a specific artist Queen
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+     // render will look in the views folder to show view to user
+      res.render('details', {
+        albumName: data.album.name,
+        artist: data.album.artist,
+        img: data.album.image[3]['#text'],
+        playcount: data.album.playcount,
+        listeners: data.album.listeners,
+        wiki: data.album.wiki.summary,
+        tracks: data.album.tracks.track
+      })
+    })
     
   }) 
 

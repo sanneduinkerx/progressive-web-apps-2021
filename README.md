@@ -6,7 +6,6 @@ Album Library is a web app where you can find albums from your favourite artists
 
 <!-- Try it [here](https://sanneduinkerx.github.io/web-app-from-scratch-2021/). -->
 
-From WAFS:
 ![](https://user-images.githubusercontent.com/60745348/109557068-e3014280-7ad7-11eb-92cf-a8288a93ca1d.png)
 ![](https://user-images.githubusercontent.com/60745348/109557105-ed234100-7ad7-11eb-9f9e-483464c93914.png)
 
