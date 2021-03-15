@@ -1,0 +1,80 @@
+/***********/
+/* basics */
+/*********/
+
+html {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin: 0;
+    /* source: https://cssgradient.io/ */
+    background-image: linear-gradient(90deg, rgba(34,0,27,1) 0%, rgba(119,9,121,1) 35%, rgba(0,212,255,1) 100%);  
+}
+
+body{
+    position: relative;
+    margin: 0;
+}
+
+/* HEADER */
+/* Layout - flexbox */
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0em 5em;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin: 1rem;
+}
+
+/* form */
+
+header form {
+    margin: 1em;
+}
+
+header form input {
+    background-color: rgb(43, 43, 43);
+    border-radius: 5px;
+    color: white;
+    border: none;
+    padding: 1em;
+    font-size: 1,1em;
+    box-shadow: rgb(36, 36, 36) 5px 5px 40px;
+}
+
+header form input:focus {
+    outline: none;
+    background: rgb(75, 75, 75)
+}
+
+header form button {
+    padding: 1em;
+    background-color: rgb(255, 168, 7);
+    border: none;
+    border-radius: 50%;
+    transition: 0.2s ease;
+    box-shadow: rgb(36, 36, 36) 5px 5px 40px;
+}
+
+header form button:hover {
+    background-color: rgb(199, 152, 65);
+    cursor: pointer;
+}
+
+header form button:focus {
+    background-color: rgb(199, 152, 65);
+    outline: none;
+}
+
+header form button img {
+    width: 1em;
+}
+
+header p{
+    display: none;
+}
