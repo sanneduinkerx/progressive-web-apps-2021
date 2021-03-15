@@ -17,7 +17,7 @@
         <% albums.forEach(function(album) { %>
             <article>
                 
-                <a href="/details/<%= album.name%>">
+                <a href="/details/<%= album.name%>/<%= artistName%>">
                     <img src="<%= album.image[3]['#text'] %>" alt="">
                     <h2><%= album.name %></h2>
                 </a>

@@ -44,6 +44,8 @@ I also saw that some albums didn't always have an image cover or the names of th
 
 More info about the API can be found [here](https://www.last.fm/api/intro). 
 
+<!-- PUT IN HERE HOW TO DONWLOAD PROJECT AND RUN IT ON SERVER -->
+
 <!-- Document in your readme.md how you will get the server up and running; git clone && npm start -->
 
 <!-- 

@@ -9,8 +9,7 @@ const port = 3000;
 
 //API URL:
 const endpoint = 'https://ws.audioscrobbler.com/2.0/?method=';
-const apiKey = '9445b881096d29d7c6de9f9d2eb6b50d';
-const artistName = 'Queen';
+const apiKey = '9445b881096d29d7c6de9f9d2eb6b50d'; // later -> hide api key!
 
 // setting ejs as the view engine
 app.set('view engine', 'ejs');
@@ -31,17 +30,19 @@ app.get('/', function (req, res) {
 
 // new path for the results
 app.get('/results', function (req, res) {
-
   //method, getting top albums and filling url
   const method = 'artist.gettopalbums'; 
-  const url = `${endpoint}${method}&artist=${artistName}&api_key=${apiKey}&format=json`; 
+  // req.query = src: https://www.digitalocean.com/community/tutorials/nodejs-req-object-in-expressjs#:~:text=great%2Dwhite%22%20.-,The%20req.,requests%20in%20the%20Express%20server.
+  // req.query express will search for a match ArtistKeyword within the url
+  const url = `${endpoint}${method}&artist=${req.query.ArtistKeyword}&api_key=${apiKey}&format=json`; 
 
   // fetch data with url, albums from a specific artist as example now Queen
   fetch(url)
     .then(response => response.json())
-    .then(data => {
+    .then(data => { 
        // render will look in the views folder to show view to user
       res.render('albumResults', {
+        // giving data to objects to use in template
         albums: data.topalbums.album,
         artistName: data.topalbums.album[0].artist.name 
         //filter data!
@@ -50,13 +51,12 @@ app.get('/results', function (req, res) {
   }) 
 
 //path to details from one album, if path matches
-app.get('/details/:albumName', function (req, res) {
-
+app.get('/details/:albumName/:artistName', function (req, res) {
     // new methode in URL to get data
     const methodGetinfo = 'album.getinfo'; 
     //URL to fetch 
-    // req.params.albumName -> parameter from path, the album name
-    const url = `${endpoint}${methodGetinfo}&api_key=${apiKey}&artist=${artistName}&album=${req.params.albumName}&format=json`;
+    // req.params.albumName -> a request, parameter from path, the album name 
+    const url = `${endpoint}${methodGetinfo}&api_key=${apiKey}&artist=${req.params.artistName}&album=${req.params.albumName}&format=json`;
      
     // fetch data with url, albums from a specific artist Queen
     fetch(url)
@@ -76,8 +76,12 @@ app.get('/details/:albumName', function (req, res) {
     
   }) 
 
+app.get('/offline', function (req, res) {
+    res.render('offline');
+}) 
+
 app.listen(port, function () {
     // log in terminal with message
     console.log(`Example app listening at http://localhost:${port}`);
-  })
+})
  
