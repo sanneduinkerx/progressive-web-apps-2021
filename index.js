@@ -36,19 +36,24 @@ app.get('/results', function (req, res) {
   // req.query express will search for a match ArtistKeyword within the url
   const url = `${endpoint}${method}&artist=${req.query.ArtistKeyword}&api_key=${apiKey}&format=json`; 
 
-  // fetch data with url, albums from a specific artist as example now Queen
+  // fetch data with url, albums from a specific artist 
+  // later modules
   fetch(url)
     .then(response => response.json())
     .then(data => { 
-       // render will look in the views folder to show view to user
+      
+      //filter apiData - all objects without an image gets filtered out
+      //object.values, source: https://stackoverflow.com/questions/55458675/filter-is-not-a-function
+      const filteredData = Object.values(data.topalbums.album).filter(noImg => noImg.image[3]['#text'] != "");
+
+      // render will look in the views folder to show view to user
       res.render('albumResults', {
         // giving data to objects to use in template
-        albums: data.topalbums.album,
+        albums: filteredData,
         artistName: data.topalbums.album[0].artist.name 
-        //filter data!
         })
       })
-      // catch error when something goes wrong -> error + loading state
+      // catch error when something goes wrong -> error state
 }) 
 
 //path to details from one album, if path matches
