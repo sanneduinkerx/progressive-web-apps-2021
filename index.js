@@ -25,7 +25,6 @@ app.use(express.static('public'));
 app.get('/', function (req, res) {
   //renders template home
   res.render('home');
-  //statisch inladen html from public -> search home page?
 })
 
 // new path for the results

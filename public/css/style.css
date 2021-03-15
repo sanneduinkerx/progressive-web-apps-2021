@@ -79,6 +79,11 @@ header p{
     display: none;
 }
 
+header a{
+    color: white;
+    text-decoration: none;
+}
+
 /* class on form - home page*/
 
 .searchForm {
