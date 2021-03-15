@@ -48,7 +48,8 @@ app.get('/results', function (req, res) {
         //filter data!
         })
       })
-  }) 
+      // catch error when something goes wrong -> error + loading state
+}) 
 
 //path to details from one album, if path matches
 app.get('/details/:albumName/:artistName', function (req, res) {
