@@ -31,17 +31,22 @@ app.get('/test', function (req, res) {
   res.send('Hello World!!!');  
 })
 
-// different path /overview path 
+// if '/' matches -> goes to starting page
 app.get('/', function (req, res) {
     // render will look in the views folder to show view to user
-    res.render('albums');
+    // res.render('albums'); 
     // get albums from certain artist
-    const apiData = fetch(url)
+    fetch(url)
       .then(response => response.json())
-      .then(data => console.log(data.topalbums.album[0].name))
+      .then(data => {
+        console.log(data.topalbums.album[0].name);
+        res.render('albums', {
+          title: data.topalbums.album[0].name
+        })
+      })
   }) 
 
-//path to details from one album
+//path to details from one album, if path matches
 app.get('/details', function (req, res) {
     // render will look in the views folder to show view to user
     res.render('details');
