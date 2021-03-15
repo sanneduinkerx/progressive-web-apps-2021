@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- embeding the partial head.ejs in head-->
+    <!-- the hyphen tells the ejs to render raw html -->
+    <%- include('./partials/head.ejs'); %> 
+</head>
+<body>
+    
+<header>
+    <%- include('./partials/header.ejs'); %> 
+</header>
+
+<main>
+    <section>
+        <h1>Showing results for '<%= artistName %>' </h1>
+
+        <!-- for each album it now renders the image source and the album name in an article -->
+        <% albums.forEach(function(album) { %>
+            <article>
+                <!-- href: change of path when clicking on an album, gives album name within url -->
+                <a href="/details/<%= album.name%>">
+                    <img src="<%= album.image[3]['#text'] %>" alt="">
+                    <h2><%= album.name %></h2>
+                </a>
+            </article>
+
+        <% }); %>
+    </section>
+</main>
+
+<footer>
+    <%- include('./partials/footer.ejs'); %>
+</footer>
+
+</body>
+</html>

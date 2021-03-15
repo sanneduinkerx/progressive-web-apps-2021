@@ -10,6 +10,7 @@ const port = 3000;
 //API URL:
 const endpoint = 'https://ws.audioscrobbler.com/2.0/?method=';
 const apiKey = '9445b881096d29d7c6de9f9d2eb6b50d';
+const artistName = 'Queen';
 
 // setting ejs as the view engine
 app.set('view engine', 'ejs');
@@ -19,43 +20,43 @@ app.set('view engine', 'ejs');
 //to serve static files such as css or images use this:
 app.use(express.static('public'));
 
-app.get('/', function (req, res) {
-  //sends response to browser
-  // res.send('Hello World!!!');  
-  res.render('home');
-})
-
 // starting page, req -> request and a respond
 // get -> an http request method
 // the '/' is the path on server - when that route matches the function in the route gets executed
+app.get('/', function (req, res) {
+  //renders template home
+  res.render('home');
+})
+
+// new path for the results
 app.get('/results', function (req, res) {
 
   //method, getting top albums and filling url
-  const artistName = 'Queen';
   const method = 'artist.gettopalbums'; 
   const url = `${endpoint}${method}&artist=${artistName}&api_key=${apiKey}&format=json`; 
 
-    // render will look in the views folder to show view to user
-    // res.render('albums'); 
-
-    // fetch data with url, albums from a specific artist Queen
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data.topalbums.album[0].name);
-         // render will look in the views folder to show view to user
-        res.render('albums', {
-          title: data.topalbums.album[0].name,
-          img: data.topalbums.album[0].image[2]['#text']
+  // fetch data with url, albums from a specific artist Queen
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+       // render will look in the views folder to show view to user
+      res.render('albumResults', {
+        albums: data.topalbums.album,
+        artistName: data.topalbums.album[0].artist.name 
+        //filter data!
         })
       })
   }) 
 
 //path to details from one album, if path matches
 app.get('/details/:albumName', function (req, res) {
-
     // render will look in the views folder to show view to user
+    console.log('hi');
     res.render('details');
+    // const method = 'album.getinfo'; 
+    // //URL to fetch 
+    // const url = `${endpoint}${method}&api_key=${apiKey}&artist=${artistName}&album=${albumName}&format=json`; 
+    
   }) 
 
 app.listen(port, function () {
