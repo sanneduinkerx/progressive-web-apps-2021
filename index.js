@@ -40,16 +40,15 @@ app.get('/results', function (req, res) {
   fetch(url)
     .then(response => response.json())
     .then(data => { 
-      
       //filter apiData - all objects without an image gets filtered out
       //object.values, source: https://stackoverflow.com/questions/55458675/filter-is-not-a-function
       const filteredData = Object.values(data.topalbums.album).filter(noImg => noImg.image[3]['#text'] != "");
 
       // render will look in the views folder to show view to user
-      res.render('albumResults', {
+      res.render('albums', {
         // giving data to objects to use in template
         albums: filteredData,
-        artistName: data.topalbums.album[0].artist.name 
+        artistName: `${req.query.ArtistKeyword}`
         })
       })
       // catch error when something goes wrong -> error state
@@ -67,18 +66,32 @@ app.get('/details/:albumName/:artistName', function (req, res) {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-     // render will look in the views folder to show view to user
+
+      // splitting and retrieving pieces from string //
+      // source: https://www.w3schools.com/js/js_string_methods.asp
+      const summaryText = data.album.wiki.summary;
+      //finding the position where the link element starts in string summary 
+      const linkPosition = summaryText.lastIndexOf("<a href");
+      const summaryStr = summaryText.substr(0,linkPosition);
+      const linkStr = summaryText.substr(linkPosition);
+      //split the retrieved link in 3 with " - to get de a href link and text content from a href
+      const stringArray = linkStr.split('"');
+      const link2Position = stringArray[2].indexOf("</a>");
+      const linkTxt = stringArray[2].substr(1, link2Position - 1);
+
+     // render will look in the views folder to show view to user, giving data with it to fill template
       res.render('details', {
         albumName: data.album.name,
         artist: data.album.artist,
-        img: data.album.image[3]['#text'],
+        img: data.album.image[3]['#text'], 
         playcount: data.album.playcount,
         listeners: data.album.listeners,
-        wiki: data.album.wiki.summary,
+        wiki: summaryStr,
+        linkTxt: linkTxt,
+        aHref: stringArray[1],
         tracks: data.album.tracks.track
       })
     })
-    
   }) 
 
 app.get('/offline', function (req, res) {
