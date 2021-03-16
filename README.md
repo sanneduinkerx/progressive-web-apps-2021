@@ -22,6 +22,10 @@ Things I want to add/change:
 ### Process 📈
 The **process** of web app can be found [here](https://github.com/sanneduinkerx/progressive-web-apps-2021/wiki/Week-1---Server-Side-Rendering-%F0%9F%93%A1).
 
+## How to install this project
+
+1. 
+
 ## API - LastFM 🎵
 I've chosen the LastFM API. 
 ![](https://user-images.githubusercontent.com/60745348/107949699-f9ff4b00-6f95-11eb-9e98-a5ffa4456ba5.png)
