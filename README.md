@@ -44,6 +44,15 @@ I also saw that some albums didn't always have an image cover or the names of th
 
 More info about the API can be found [here](https://www.last.fm/api/intro). 
 
+## Sources
+Sources used to make this web app:
+- How to use EJS to template your node application - [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-use-ejs-to-template-your-node-application)
+- How to use nodejs req object in express - [Digital Ocean](https://www.digitalocean.com/community/tutorials/nodejs-req-object-in-expressjs#:~:text=great%2Dwhite%22%20.-,The%20req.,requests%20in%20the%20Express%20server)
+- Filter is not a function - [stack overflow](https://stackoverflow.com/questions/55458675/filter-is-not-a-function)
+- JS string methods - [w3 schools](https://www.w3schools.com/js/js_string_methods.asp)
+- Hello world, setting up server - [Express JS](https://expressjs.com/en/starter/hello-world.html)
+- Static files - [Express JS](https://expressjs.com/en/starter/static-files.html)
+
 <!-- PUT IN HERE HOW TO DONWLOAD PROJECT AND RUN IT ON SERVER -->
 
 <!-- Document in your readme.md how you will get the server up and running; git clone && npm start -->
