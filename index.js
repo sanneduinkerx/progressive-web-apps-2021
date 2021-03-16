@@ -40,6 +40,7 @@ app.get('/results', function (req, res) {
   fetch(url)
     .then(response => response.json())
     .then(data => { 
+      // in module: manipulate data  
       //filter apiData - all objects without an image gets filtered out
       //object.values, source: https://stackoverflow.com/questions/55458675/filter-is-not-a-function
       const filteredData = Object.values(data.topalbums.album).filter(noImg => noImg.image[3]['#text'] != "");
@@ -66,7 +67,8 @@ app.get('/details/:albumName/:artistName', function (req, res) {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-
+        
+      // in module: manipulate data  
       // splitting and retrieving pieces from string //
       // source: https://www.w3schools.com/js/js_string_methods.asp
       const summaryText = data.album.wiki.summary;
@@ -95,7 +97,9 @@ app.get('/details/:albumName/:artistName', function (req, res) {
   }) 
 
 app.get('/offline', function (req, res) {
-    res.render('offline');
+    res.render('offline', {
+      error: 'It seems that you are offline'
+    });
 }) 
 
 app.listen(port, function () {
