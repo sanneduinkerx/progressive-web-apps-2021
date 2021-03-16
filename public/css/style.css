@@ -38,7 +38,7 @@ header form {
 }
 
 header form input {
-    background-color: rgb(43, 43, 43);
+    background-color: #2b2b2b;
     border-radius: 5px;
     color: white;
     border: none;
@@ -209,6 +209,13 @@ main .Albuminfo div{
     margin-bottom: 1em;
 }
 
+/* ERROR STATE */
+
+.error {
+    background-color: rgb(36, 36, 36);
+    width: 10em;
+    height: 10em;
+}
 
 
 /* FOOTER */

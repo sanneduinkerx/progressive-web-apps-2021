@@ -1,0 +1,54 @@
+{
+    "name": "Album Library",
+    "short_name": "AlbumLibrary",
+    "description": "Simple PWA with Node.js fetching API data from lastFm API",
+    "lang": "en-GB",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#2b2b2b",
+    "theme_color": "#22001b",
+    "orientation": "landscape",
+    "icons": [
+      {
+        "src": "/img/albumLibraryIcon-72x72.png",
+        "sizes": "72x72",
+        "type": "image/png"
+      },
+      {
+        "src": "/img/albumLibraryIcon-96x96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      },
+      {
+        "src": "/img/albumLibraryIcon-128x128.png",
+        "sizes": "128x128",
+        "type": "image/png"
+      },
+      {
+        "src": "/img/albumLibraryIcon-144x144.png",
+        "sizes": "144x144",
+        "type": "image/png"
+      },
+      {
+        "src": "/img/albumLibraryIcon-152x152.png",
+        "sizes": "152x152",
+        "type": "image/png"
+      },
+      {
+        "src": "/img/albumLibraryIcon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/img/albumLibraryIcon-384x384.png",
+        "sizes": "348x348",
+        "type": "image/png"
+      },
+      {
+        "src": "/img/albumLibraryIcon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }

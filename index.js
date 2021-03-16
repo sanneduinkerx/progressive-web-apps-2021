@@ -1,4 +1,5 @@
 // module imported express - source: https://expressjs.com/en/starter/hello-world.html
+// server side rendering
 // require same as import, you can use import but thats from the latest version which isn't stable yet
 const express = require('express');
 const fetch = require('node-fetch'); // for usage: https://www.npmjs.com/package/node-fetch
@@ -12,7 +13,7 @@ const endpoint = 'https://ws.audioscrobbler.com/2.0/?method=';
 const apiKey = '9445b881096d29d7c6de9f9d2eb6b50d'; // later -> hide api key!
 
 // setting ejs as the view engine
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); 
 // you tell express to use static and look in public file
 // you can load the static files with express.static: http://localhost:3000/style.css
 // more info: https://expressjs.com/en/starter/static-files.html
@@ -36,11 +37,10 @@ app.get('/results', function (req, res) {
   const url = `${endpoint}${method}&artist=${req.query.ArtistKeyword}&api_key=${apiKey}&format=json`; 
 
   // fetch data with url, albums from a specific artist 
-  // later modules
+  // later in modules
   fetch(url)
     .then(response => response.json())
     .then(data => { 
-      // in module: manipulate data  
       //filter apiData - all objects without an image gets filtered out
       //object.values, source: https://stackoverflow.com/questions/55458675/filter-is-not-a-function
       const filteredData = Object.values(data.topalbums.album).filter(noImg => noImg.image[3]['#text'] != "");
@@ -52,6 +52,10 @@ app.get('/results', function (req, res) {
         artistName: `${req.query.ArtistKeyword}`
         })
       })
+      .catch(error => {
+        //handle error here
+        console.log(error);
+    })
       // catch error when something goes wrong -> error state
 }) 
 
@@ -67,7 +71,7 @@ app.get('/details/:albumName/:artistName', function (req, res) {
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        
+
       // in module: manipulate data  
       // splitting and retrieving pieces from string //
       // source: https://www.w3schools.com/js/js_string_methods.asp
@@ -100,7 +104,7 @@ app.get('/offline', function (req, res) {
     res.render('offline', {
       error: 'It seems that you are offline'
     });
-}) 
+})
 
 app.listen(port, function () {
     // log in terminal with message

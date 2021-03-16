@@ -56,6 +56,7 @@ Sources used to make this web app:
 - JS string methods - [w3 schools](https://www.w3schools.com/js/js_string_methods.asp)
 - Hello world, setting up server - [Express JS](https://expressjs.com/en/starter/hello-world.html)
 - Static files - [Express JS](https://expressjs.com/en/starter/static-files.html)
+- PWA Tutorial for Beginners #3 - The Web App Manifest[Youtube - The Net Ninja](https://www.youtube.com/watch?v=AlEdGOLhuM8)
 
 <!-- PUT IN HERE HOW TO DONWLOAD PROJECT AND RUN IT ON SERVER -->
 
