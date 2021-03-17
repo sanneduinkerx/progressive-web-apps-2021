@@ -2,15 +2,13 @@
 Here I convert the client side web application from [web app from scratch](https://github.com/sanneduinkerx/web-app-from-scratch-2021) into a server side rendered application.
 
 ## Web App - Album Libray 🎶
-Album Library is a web app where you can find albums from your favourite artists. You can find more information per album and the tracks from that album. It gives good feedback to the user with an error and loading state.
-
-<!-- Try it [here](https://sanneduinkerx.github.io/web-app-from-scratch-2021/). -->
+Album Library is a web app where you can find albums from your favourite artists. You can find more information per album and the tracks from that album. It gives good feedback to the user with an error and loading state. Try it [here](https://album-library.herokuapp.com/).
 
 ![](https://user-images.githubusercontent.com/60745348/109557068-e3014280-7ad7-11eb-92cf-a8288a93ca1d.png)
 ![](https://user-images.githubusercontent.com/60745348/109557105-ed234100-7ad7-11eb-9f9e-483464c93914.png)
 
-<!-- ### Web App Link 🔗
-You can find the web app [here](https://sanneduinkerx.github.io/web-app-from-scratch-2021/).  -->
+### Web App Link 🔗
+You can find the web app [here](https://album-library.herokuapp.com/). 
 
 ### Wishlist:
 Things I want to add/change:
@@ -57,6 +55,7 @@ Sources used to make this web app:
 - Hello world, setting up server - [Express JS](https://expressjs.com/en/starter/hello-world.html)
 - Static files - [Express JS](https://expressjs.com/en/starter/static-files.html)
 - PWA Tutorial for Beginners #3 - The Web App Manifest [Youtube - The Net Ninja](https://www.youtube.com/watch?v=AlEdGOLhuM8)
+- Deploy your node express app on heroku - [dzone](https://dzone.com/articles/deploy-your-node-express-app-on-heroku-in-8-easy-s)
 
 <!-- PUT IN HERE HOW TO DONWLOAD PROJECT AND RUN IT ON SERVER -->
 
