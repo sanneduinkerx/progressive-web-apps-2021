@@ -212,9 +212,14 @@ main .Albuminfo div{
 /* ERROR STATE */
 
 .error {
-    background-color: rgb(36, 36, 36);
-    width: 10em;
-    height: 10em;
+    width: 20em;
+    /* height: 8em; */
+    margin: auto;
+    position: relative;
+    background-color: rgb(43, 43, 43);
+    padding: .5em;
+    border-radius: 10px;
+    text-align: center;
 }
 
 

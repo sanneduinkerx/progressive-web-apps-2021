@@ -56,7 +56,10 @@ app.get('/results', function (req, res) {
       .catch(error => {
         //handle error here
         console.log(error);
-    })
+        res.render('error', {
+          error: 'We could not find the artist you were looking for, maybe try something else',
+        })
+      })
       // catch error when something goes wrong -> error state
 }) 
 
@@ -73,38 +76,43 @@ app.get('/details/:albumName/:artistName', function (req, res) {
       .then(response => response.json())
       .then(data => {
 
-      // in module: manipulate data  
-      // splitting and retrieving pieces from string //
-      // source: https://www.w3schools.com/js/js_string_methods.asp
-      const summaryText = data.album.wiki.summary;
-      //finding the position where the link element starts in string summary 
-      const linkPosition = summaryText.lastIndexOf("<a href");
-      const summaryStr = summaryText.substr(0,linkPosition);
-      const linkStr = summaryText.substr(linkPosition);
-      //split the retrieved link in 3 with " - to get de a href link and text content from a href
-      const stringArray = linkStr.split('"');
-      const link2Position = stringArray[2].indexOf("</a>");
-      const linkTxt = stringArray[2].substr(1, link2Position - 1);
+        // in module: manipulate data  
+        // splitting and retrieving pieces from string //
+        // source: https://www.w3schools.com/js/js_string_methods.asp
+        const summaryText = data.album.wiki.summary;
+        //finding the position where the link element starts in string summary 
+        const linkPosition = summaryText.lastIndexOf("<a href");
+        const summaryStr = summaryText.substr(0,linkPosition);
+        const linkStr = summaryText.substr(linkPosition);
+        //split the retrieved link in 3 with " - to get de a href link and text content from a href
+        const stringArray = linkStr.split('"');
+        const link2Position = stringArray[2].indexOf("</a>");
+        const linkTxt = stringArray[2].substr(1, link2Position - 1);
 
-     // render will look in the views folder to show view to user, giving data with it to fill template
-      res.render('details', {
-        albumName: data.album.name,
-        artist: data.album.artist,
-        img: data.album.image[3]['#text'], 
-        playcount: data.album.playcount,
-        listeners: data.album.listeners,
-        wiki: summaryStr,
-        linkTxt: linkTxt,
-        aHref: stringArray[1],
-        tracks: data.album.tracks.track
+        // render will look in the views folder to show view to user, giving data with it to fill template
+        res.render('details', {
+          albumName: data.album.name,
+          artist: data.album.artist,
+          img: data.album.image[3]['#text'], 
+          playcount: data.album.playcount,
+          listeners: data.album.listeners,
+          wiki: summaryStr,
+          linkTxt: linkTxt,
+          aHref: stringArray[1],
+          tracks: data.album.tracks.track
+        })
+    }) 
+      .catch(error => {
+        //handle error here
+        console.log(error);
+        res.render('error', {
+          error: 'We could not find the information you were looking for.',
+        })
       })
-    })
   }) 
 
 app.get('/offline', function (req, res) {
-    res.render('offline', {
-      error: 'It seems that you are offline'
-    });
+    res.render('offline');
 })
 
 app.listen(port, function () {
