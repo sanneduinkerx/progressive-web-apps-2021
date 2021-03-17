@@ -6,7 +6,8 @@ const fetch = require('node-fetch'); // for usage: https://www.npmjs.com/package
 
 const app = express();
 //port to listen to in browser
-const port = 3000; 
+//source: https://dzone.com/articles/deploy-your-node-express-app-on-heroku-in-8-easy-s 
+const port = process.env.PORT || 3000; 
 
 //API URL:
 const endpoint = 'https://ws.audioscrobbler.com/2.0/?method=';
