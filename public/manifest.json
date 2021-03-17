@@ -1,5 +1,6 @@
 {
     "name": "Album Library",
+    "omnibox": { "keyword" : "AlbumLibrary" },
     "short_name": "AlbumLibrary",
     "description": "Simple PWA with Node.js fetching API data from lastFm API",
     "lang": "en-GB",
@@ -10,6 +11,11 @@
     "theme_color": "#22001b",
     "orientation": "landscape",
     "icons": [
+      {
+        "src": "/img/albumLibraryIcon-16x16.png",
+        "sizes": "16x16",
+        "type": "image/png"
+      },
       {
         "src": "/img/albumLibraryIcon-72x72.png",
         "sizes": "72x72",
