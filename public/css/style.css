@@ -216,6 +216,7 @@ main .Albuminfo div{
     /* height: 8em; */
     margin: auto;
     position: relative;
+    top:40%;
     background-color: rgb(43, 43, 43);
     padding: .5em;
     border-radius: 10px;

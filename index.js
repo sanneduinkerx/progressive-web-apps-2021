@@ -25,7 +25,7 @@ app.use(express.static('public'));
 // get -> an http request method
 // the '/' is the path on server - when that route matches the function in the route gets executed
 app.get('/', function (req, res) {
-  //renders template home
+  //renders ejs template home
   res.render('home');
 })
 
@@ -37,32 +37,36 @@ app.get('/results', function (req, res) {
   // req.query express will search for a match ArtistKeyword within the url
   const url = `${endpoint}${method}&artist=${req.query.ArtistKeyword}&api_key=${apiKey}&format=json`; 
 
-  // fetch data with url, albums from a specific artist 
-  // later in modules
-  fetch(url)
-    .then(response => response.json())
-    .then(data => { 
-      //filter apiData - all objects without an image gets filtered out
-      //object.values, source: https://stackoverflow.com/questions/55458675/filter-is-not-a-function
-      const filteredData = Object.values(data.topalbums.album).filter(noImg => noImg.image[3]['#text'] != "");
-
-      // render will look in the views folder to show view to user
-      res.render('albums', {
-        // giving data to objects to use in template
-        albums: filteredData,
-        artistName: `${req.query.ArtistKeyword}`
+  //redirect when it only says /results -> which also is also a result with an artist name undefined, which is what we don't want
+  if(req.query.ArtistKeyword == undefined){
+    res.redirect('/');
+  } else{
+      // fetch data with url, albums from a specific artist 
+      // later in modules, to clean code and more structure
+      fetch(url)
+      .then(response => response.json())
+      .then(data => { 
+        //filter apiData - all objects without an image gets filtered out
+        //object.values, source: https://stackoverflow.com/questions/55458675/filter-is-not-a-function
+        const filteredData = Object.values(data.topalbums.album).filter(noImg => noImg.image[3]['#text'] != "");
+        console.log(filteredData)
+        // render will look in the views folder to show view to user
+        res.render('albums', {
+          // giving data to objects to use in template
+          albums: filteredData,
+          artistName: filteredData[0].artist.name
+          })
         })
-      })
-      .catch(error => {
-        //handle error here
-        console.log(error);
-        res.render('error', {
-          error: 'We could not find the artist you were looking for, maybe try something else',
+        .catch(() => {
+          // catch error when something goes wrong -> error state
+          //handle error here
+          res.render('error', {
+            error: 'We could not find the artist you were looking for, maybe try something else',
+          })
         })
-      })
-      // catch error when something goes wrong -> error state
+      }
 }) 
-
+-
 //path to details from one album, if path matches
 app.get('/details/:albumName/:artistName', function (req, res) {
     // new methode in URL to get data
@@ -76,7 +80,7 @@ app.get('/details/:albumName/:artistName', function (req, res) {
       .then(response => response.json())
       .then(data => {
 
-        // in module: manipulate data  
+        // in module later
         // splitting and retrieving pieces from string //
         // source: https://www.w3schools.com/js/js_string_methods.asp
         const summaryText = data.album.wiki.summary;
@@ -102,11 +106,10 @@ app.get('/details/:albumName/:artistName', function (req, res) {
           tracks: data.album.tracks.track
         })
     }) 
-      .catch(error => {
+      .catch(() => {
         //handle error here
-        console.log(error);
         res.render('error', {
-          error: 'We could not find the information you were looking for.',
+          error: 'The information you were looking for could not be found.',
         })
       })
   }) 
