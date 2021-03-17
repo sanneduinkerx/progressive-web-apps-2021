@@ -1,6 +1,5 @@
 {
     "name": "Album Library",
-    "omnibox": { "keyword" : "AlbumLibrary" },
     "short_name": "AlbumLibrary",
     "description": "Simple PWA with Node.js fetching API data from lastFm API",
     "lang": "en-GB",
