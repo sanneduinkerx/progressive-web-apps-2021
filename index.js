@@ -38,7 +38,8 @@ app.get('/results', function (req, res) {
   const url = `${endpoint}${method}&artist=${req.query.ArtistKeyword}&api_key=${apiKey}&format=json`; 
 
   //redirect when it only says /results -> which also is also a result with an artist name undefined, which is what we don't want
-  if(req.query.ArtistKeyword == undefined){
+  // so if artistKeyword is undefined
+  if(!req.query.ArtistKeyword){
     res.redirect('/');
   } else{
       // fetch data with url, albums from a specific artist 
