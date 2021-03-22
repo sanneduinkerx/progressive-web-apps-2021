@@ -7,7 +7,7 @@ const fetch = require('node-fetch'); // for usage: https://www.npmjs.com/package
 const app = express();
 //port to listen to in browser
 //source: https://dzone.com/articles/deploy-your-node-express-app-on-heroku-in-8-easy-s 
-const port = process.env.PORT || 3000; 
+const port = process.env.PORT || 3001; 
 
 //API URL:
 const endpoint = 'https://ws.audioscrobbler.com/2.0/?method=';
@@ -20,6 +20,7 @@ app.set('view engine', 'ejs');
 // more info: https://expressjs.com/en/starter/static-files.html
 //to serve static files such as css or images use this:
 app.use(express.static('public'));
+
 
 // starting page, req -> request and a respond
 // get -> an http request method
@@ -49,7 +50,8 @@ app.get('/results', function (req, res) {
       .then(data => { 
         //filter apiData - all objects without an image gets filtered out
         //object.values, source: https://stackoverflow.com/questions/55458675/filter-is-not-a-function
-        const filteredData = Object.values(data.topalbums.album).filter(noImg => noImg.image[3]['#text'] != "");
+        //for better performance, smallest image from the API = there were 4 images i picked the smallest one
+        const filteredData = Object.values(data.topalbums.album).filter(noImg => noImg.image[0]['#text'] != "");
         console.log(filteredData)
         // render will look in the views folder to show view to user
         res.render('albums', {
@@ -115,6 +117,7 @@ app.get('/details/:albumName/:artistName', function (req, res) {
       })
   }) 
 
+// when network fails, show offline page from cache
 app.get('/offline', function (req, res) {
     res.render('offline');
 })

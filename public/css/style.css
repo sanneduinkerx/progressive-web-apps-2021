@@ -71,8 +71,10 @@ header form button:focus {
     outline: none;
 }
 
-header form button img {
+form button img {
+    /* performance width and height to an img */
     width: 1em;
+    height: 1em;
 }
 
 header p{
@@ -145,7 +147,9 @@ main section img {
     border-radius: 10px;
     margin: 2em 3em 0em 3em;
     box-shadow: rgb(36, 36, 36) 5px 5px 40px;
-    max-width: 15em
+    /* a width and height for better performance: less layout shift */
+    width: 15em;
+    height: 15em;
 }
 
 main article a {
