@@ -56,6 +56,9 @@ Sources used to make this web app:
 - Static files - [Express JS](https://expressjs.com/en/starter/static-files.html)
 - PWA Tutorial for Beginners #3 - The Web App Manifest [Youtube - The Net Ninja](https://www.youtube.com/watch?v=AlEdGOLhuM8)
 - Deploy your node express app on heroku - [dzone](https://dzone.com/articles/deploy-your-node-express-app-on-heroku-in-8-easy-s)
+<!-- - Getting started with compression in Node js - [Digital Ocean](https://www.digitalocean.com/community/tutorials/nodejs-compression) -->
+- Buildscript - getting started - [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start)
+- super simple gulp tutorial for beginners - [FreeCodeCamp](https://www.freecodecamp.org/news/super-simple-gulp-tutorial-for-beginners-45141974bfe8/)
 
 <!-- PUT IN HERE HOW TO DONWLOAD PROJECT AND RUN IT ON SERVER -->
 

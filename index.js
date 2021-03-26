@@ -20,6 +20,7 @@ app.set('view engine', 'ejs');
 // more info: https://expressjs.com/en/starter/static-files.html
 //to serve static files such as css or images use this:
 app.use(express.static('public'));
+// compressing al responses
 
 
 // starting page, req -> request and a respond
@@ -32,7 +33,7 @@ app.get('/', function (req, res) {
 
 // new path for the results
 app.get('/results', function (req, res) {
-  //method, getting top albums and filling url
+  //method, getting top albums and filling url 
   const method = 'artist.gettopalbums'; 
   // req.query = src: https://www.digitalocean.com/community/tutorials/nodejs-req-object-in-expressjs#:~:text=great%2Dwhite%22%20.-,The%20req.,requests%20in%20the%20Express%20server.
   // req.query express will search for a match ArtistKeyword within the url
@@ -69,7 +70,7 @@ app.get('/results', function (req, res) {
         })
       }
 }) 
--
+
 //path to details from one album, if path matches
 app.get('/details/:albumName/:artistName', function (req, res) {
     // new methode in URL to get data
