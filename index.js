@@ -7,7 +7,7 @@ const fetch = require('node-fetch'); // for usage: https://www.npmjs.com/package
 const app = express();
 //port to listen to in browser
 //source: https://dzone.com/articles/deploy-your-node-express-app-on-heroku-in-8-easy-s 
-const port = process.env.PORT || 3001; 
+const port = process.env.PORT || 3002; 
 
 //API URL:
 const endpoint = 'https://ws.audioscrobbler.com/2.0/?method=';
@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 // you can load the static files with express.static: http://localhost:3000/style.css
 // more info: https://expressjs.com/en/starter/static-files.html
 //to serve static files such as css or images use this:
-app.use(express.static('public'));
+app.use(express.static('src'));
 // compressing al responses
 
 
