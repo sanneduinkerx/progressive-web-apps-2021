@@ -4,7 +4,6 @@
 // require same as import, you can use import but thats from the latest version which isn't stable yet
 const express = require('express');
 const fetch = require('node-fetch');
-require('dotenv').config();
 
 const app = express();
 //port to listen to in browser
