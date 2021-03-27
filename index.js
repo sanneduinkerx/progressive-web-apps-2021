@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 // you tell express to use static and look in public folder
 // you can load the static files with express.static: http://localhost:3002/style.css
 //to serve static files such as css or images use this:
-app.use(express.static('src'));
+app.use(express.static('public'));
 
 // starting page, req -> request and a respond
 // get -> an http request method

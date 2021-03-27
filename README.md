@@ -64,7 +64,6 @@ More info about the API can be found [here](https://www.last.fm/api/intro).
 
 ## Wishlist:
 Things I want to add/change in the future:
-- A back link on detailpage to go back to search results from an artist
 - to structure code more, make modules for routes and the api fetch (only if there is time)
 - Loading state
 - favorites list, with cache service worker
@@ -97,6 +96,7 @@ Sources used to make this web app:
 - Deploy your node express app on heroku - [dzone](https://dzone.com/articles/deploy-your-node-express-app-on-heroku-in-8-easy-s)
 - Buildscript - getting started - [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start)
 - super simple gulp tutorial for beginners - [FreeCodeCamp](https://www.freecodecamp.org/news/super-simple-gulp-tutorial-for-beginners-45141974bfe8/)
+- buildscript npm script - [youtube](https://www.youtube.com/watch?v=Ajt2-fWRwOk)
 
 <!-- Maybe a table of contents here? 📚 -->
 

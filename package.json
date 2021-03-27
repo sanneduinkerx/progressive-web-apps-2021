@@ -4,8 +4,12 @@
   "description": "API album node",
   "main": "index.js",
   "scripts": {
+    "build": "npm run build-css && npm run build-js && npm run build-assets",
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "build-css": "node build/build-css.js",
+    "build-js": "node build/build-js.js",
+    "build-assets": "node build/build-static-assets.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
