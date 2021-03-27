@@ -22,7 +22,32 @@ The **process** of web app can be found [here](https://github.com/sanneduinkerx/
 
 ## How to install this project
 
-1. 
+1. Clone this project 
+
+    In terminal:
+    ```
+    git clone https://github.com/sanneduinkerx/progressive-web-apps-2021
+    ```
+
+2. Install dependencies
+    ```
+    npm install
+    ```
+
+3. To start run the server:
+    ```
+    npm run start
+    ```
+
+4. If you make changes and want the server to restart itself when making changes:
+    ```
+    npm run dev
+    ```
+
+5. Go to localhost
+    ```
+    http://localhost:3002/
+    ```
 
 ## API - LastFM 🎵
 I've chosen the LastFM API. 
@@ -45,6 +70,14 @@ The api shows in total 50 albums per page, if asking for the albums from a speci
 I also saw that some albums didn't always have an image cover or the names of the album weren't there, to fix that i filter those albums out. With album.getInfo more info was missing if i wanted info from the wiki, some albums didn't have that object and therefore i will use an error message to give feedback.
 
 More info about the API can be found [here](https://www.last.fm/api/intro). 
+
+### Wishlist:
+Things I want to add/change in the future:
+- A back link on detailpage to go back to search results from an artist
+- to structure code more, make modules for routes and the api fetch (only if there is time)
+- Loading state
+- favorites list, with cache service worker
+
 
 ## Sources
 Sources used to make this web app:
