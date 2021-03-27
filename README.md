@@ -82,6 +82,8 @@ The npm packages i used in this project are:
     - gulp concat - combine files
     - gulp cssnano - minify css
     - gulp uglify - minify js
+- dotenv:
+    to hide certain information like api key
 
 ## Sources
 Sources used to make this web app:

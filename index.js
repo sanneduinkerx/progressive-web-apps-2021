@@ -3,6 +3,7 @@
 // require same as import, you can use import but thats from the latest version which isn't stable yet
 const express = require('express');
 const fetch = require('node-fetch'); // for usage: https://www.npmjs.com/package/node-fetch
+require('dotenv').config();
 
 const app = express();
 //port to listen to in browser
@@ -11,7 +12,7 @@ const port = process.env.PORT || 3002;
 
 //API URL:
 const endpoint = 'https://ws.audioscrobbler.com/2.0/?method=';
-const apiKey = '9445b881096d29d7c6de9f9d2eb6b50d'; // later -> hide api key!
+const apiKey = process.env.API_KEY; 
 
 // setting ejs as the view engine
 app.set('view engine', 'ejs'); 
@@ -20,8 +21,6 @@ app.set('view engine', 'ejs');
 // more info: https://expressjs.com/en/starter/static-files.html
 //to serve static files such as css or images use this:
 app.use(express.static('src'));
-// compressing al responses
-
 
 // starting page, req -> request and a respond
 // get -> an http request method
@@ -45,7 +44,7 @@ app.get('/results', function (req, res) {
     res.redirect('/');
   } else{
       // fetch data with url, albums from a specific artist 
-      // later in modules, to clean code and more structure
+      // later in modules, to clean code and more structure -> if time 
       fetch(url)
       .then(response => response.json())
       .then(data => { 
