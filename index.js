@@ -16,6 +16,7 @@ const apiKey = process.env.API_KEY;
 
 // setting ejs as the view engine
 app.set('view engine', 'ejs'); 
+
 // you tell express to use static and look in public folder
 // you can load the static files with express.static: http://localhost:3002/style.css
 //to serve static files such as css or images use this:
@@ -31,8 +32,10 @@ app.get('/', function (req, res) {
 
 // new path for the results
 app.get('/results', function (req, res) {
+
   //method, getting top albums and filling url 
   const method = 'artist.gettopalbums'; 
+
   // request, req.query express will search for a match query: ArtistKeyword within the url
   // when user searches for a certain artist express requests that artist from the url with req.query
   const url = `${endpoint}${method}&artist=${req.query.ArtistKeyword}&api_key=${apiKey}&format=json`; 
@@ -41,10 +44,13 @@ app.get('/results', function (req, res) {
   // which also is also a result with an artist name undefined, which is what we don't want
   // so if artistKeyword is undefined
   if(!req.query.ArtistKeyword){
+
     // then redirect to home
     // so when user for example pushes enter without filling in the search bar it doesnt search for undefined, but does nothing in the users eyes
     res.redirect('/');
+
   } else{
+
       // fetch data with url, albums from a specific artist 
       fetch(url)
         .then(response => response.json())
@@ -63,6 +69,7 @@ app.get('/results', function (req, res) {
             })
         })
           .catch(() => {
+
             // catch error when something goes wrong -> error state
             //handle error here
             res.render('error', {
@@ -74,8 +81,10 @@ app.get('/results', function (req, res) {
 
 //path to details from one album, if path matches
 app.get('/details/:albumName/:artistName', function (req, res) {
+
     // new methode in URL to get data
     const methodGetinfo = 'album.getinfo'; 
+    
     //URL to fetch 
     // req.params.albumName -> a request, parameter from path, the album name 
     const url = `${endpoint}${methodGetinfo}&api_key=${apiKey}&artist=${req.params.artistName}&album=${req.params.albumName}&format=json`;
