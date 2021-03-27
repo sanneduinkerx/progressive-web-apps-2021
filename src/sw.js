@@ -9,7 +9,7 @@
 const CORE_CACHE = 1
 const CORE_CACHE_NAME = `core-v${CORE_CACHE}`
 //this will cache the style.css, the /offline page and the manifest.json
-const CORE_ASSETS = ["manifest.json","/offline", "css/style.css"] 
+const CORE_ASSETS = ["manifest.json", "/offline", "css/style.css"] 
 
 //installing service worker
 self.addEventListener('install', (event) => {

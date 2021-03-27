@@ -74,6 +74,8 @@ app.get('/results', function (req, res) {
             //handle error here
             res.render('error', {
               error: 'We could not find the artist you were looking for, maybe try something else',
+              link: '/',
+              linkmessage: 'Go back to home'
             })
         })
       }
@@ -84,7 +86,7 @@ app.get('/details/:albumName/:artistName', function (req, res) {
 
     // new methode in URL to get data
     const methodGetinfo = 'album.getinfo'; 
-    
+
     //URL to fetch 
     // req.params.albumName -> a request, parameter from path, the album name 
     const url = `${endpoint}${methodGetinfo}&api_key=${apiKey}&artist=${req.params.artistName}&album=${req.params.albumName}&format=json`;
@@ -123,6 +125,8 @@ app.get('/details/:albumName/:artistName', function (req, res) {
         //handle error here
         res.render('error', {
           error: 'The information you were looking for could not be found.',
+          link: `/results/?ArtistKeyword=${req.params.artistName}&submit=`,
+          linkmessage: 'Go back to all albums'
         })
       })
   }) 

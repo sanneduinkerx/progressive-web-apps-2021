@@ -117,7 +117,7 @@ main section{
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-main section h1{
+main section:not(.Albuminfo) h1{
     grid-column: span 3;
     text-align: center;
 }
@@ -169,15 +169,23 @@ main section div a{
     color: rgb(255, 168, 7);
 }
 
+main section > a{
+    font-size: 18px;
+    height: 1.1em;
+    align-self: center;
+    color: rgb(255, 168, 7);
+}
+
 main section div p{
-    width: 20rem;
+    max-width: 25em;
+    margin: 1em;
 }
 
 /* songs */
 
 main section ul{
     list-style: none;
-    width: 44rem;
+    max-width: 44rem;
 }
 
 main section ul li {
@@ -194,11 +202,7 @@ main section div h2{
 main .Albuminfo{
     display: grid;
     justify-items: center;
-    grid-template-columns: 1fr 2fr;
-}
-
-main .Albuminfo h1{
-    grid-column: span 2;
+    grid-template-columns: 1fr 1fr;
 }
 
 main .Albuminfo div ul {
@@ -209,6 +213,7 @@ main .Albuminfo div ul {
 
 main .Albuminfo div{
     margin-bottom: 1em;
+    text-align: center;
 }
 
 /* ERROR STATE */
@@ -254,7 +259,7 @@ footer{
         grid-template-columns: 1fr 1fr;
     }
 
-    main section h1{
+    main section:not(.Albuminfo) h1{
         grid-column: span 2;
         text-align: center;
     }
@@ -266,11 +271,11 @@ footer{
         flex-direction: column;
     }
 
-    main section {
-        grid-template-columns: 1fr ;
+    main section,  main .Albuminfo{
+        grid-template-columns: 1fr;
     }
 
-    main section h1{
+    main section:not(.Albuminfo)  h1{
         grid-column: span 1;
         text-align: center;
     }
