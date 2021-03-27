@@ -11,47 +11,47 @@
     "orientation": "landscape",
     "icons": [
       {
-        "src": "/img/albumLibraryIcon-16x16.png",
+        "src": "icons/albumLibraryIcon-16x16.png",
         "sizes": "16x16",
         "type": "image/png"
       },
       {
-        "src": "/img/albumLibraryIcon-72x72.png",
+        "src": "icons/albumLibraryIcon-72x72.png",
         "sizes": "72x72",
         "type": "image/png"
       },
       {
-        "src": "/img/albumLibraryIcon-96x96.png",
+        "src": "icons/albumLibraryIcon-96x96.png",
         "sizes": "96x96",
         "type": "image/png"
       },
       {
-        "src": "/img/albumLibraryIcon-128x128.png",
+        "src": "icons/albumLibraryIcon-128x128.png",
         "sizes": "128x128",
         "type": "image/png"
       },
       {
-        "src": "/img/albumLibraryIcon-144x144.png",
+        "src": "icons/albumLibraryIcon-144x144.png",
         "sizes": "144x144",
         "type": "image/png"
       },
       {
-        "src": "/img/albumLibraryIcon-152x152.png",
+        "src": "icons/albumLibraryIcon-152x152.png",
         "sizes": "152x152",
         "type": "image/png"
       },
       {
-        "src": "/img/albumLibraryIcon-192x192.png",
+        "src": "icons/albumLibraryIcon-192x192.png",
         "sizes": "192x192",
         "type": "image/png"
       },
       {
-        "src": "/img/albumLibraryIcon-384x384.png",
+        "src": "icons/albumLibraryIcon-384x384.png",
         "sizes": "348x348",
         "type": "image/png"
       },
       {
-        "src": "/img/albumLibraryIcon-512x512.png",
+        "src": "icons/albumLibraryIcon-512x512.png",
         "sizes": "512x512",
         "type": "image/png"
       }

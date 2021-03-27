@@ -24,15 +24,9 @@ You can find the web app [here](https://album-library.herokuapp.com/).
     npm install
     ```
 
-3. To start run the server:
+3. Start the server:
     ```
     npm run prestart
-    ```
-
-    or If you make changes and want the server to restart itself when making changes:
-
-    ```
-    npm run dev
     ```
 
 4. Go to localhost
