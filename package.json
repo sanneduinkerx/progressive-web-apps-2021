@@ -4,6 +4,7 @@
   "description": "API album node",
   "main": "index.js",
   "scripts": {
+    "prestart": "npm run start && npm run build",
     "build": "npm run build-css && npm run build-js && npm run build-assets",
     "start": "node index.js",
     "dev": "nodemon index.js",

@@ -7,6 +7,7 @@ const gulp = require('gulp');
 const cssnano = require('gulp-cssnano'); 
 
 return gulp.src('./src/css/style.css')
+        //.pipe adds a function to the Node stream that Gulp is using
         //minify the css file
         .pipe(cssnano())
         // with dest, it writes the resulting file to a specific location

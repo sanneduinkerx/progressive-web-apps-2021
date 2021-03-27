@@ -26,7 +26,7 @@ You can find the web app [here](https://album-library.herokuapp.com/).
 
 3. To start run the server:
     ```
-    npm run start
+    npm run prestart
     ```
 
     or If you make changes and want the server to restart itself when making changes:
@@ -77,7 +77,7 @@ The npm packages i used in this project are:
     A web framework with feature for routing. And supports template engines such as EJS. for more info [click here](https://www.npmjs.com/package/express)
 - Node-fetch: 
     to use fetch(url) to fetch data from lastFM API.
-- I also used buildscript and therefore i used **Gulp**, to build, combine and minify css and js files and put it in a public map to serve  on client side. I used:
+- I also used a buildscript and therefore i used **Gulp**, to build, combine and minify css and js files and put it in a public folder to serve  on client side. I used:
     - gulp concat - combine files
     - gulp cssnano - minify css
     - gulp uglify - minify js
