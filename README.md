@@ -59,7 +59,7 @@ More info about the API can be found [here](https://www.last.fm/api/intro).
 ## Wishlist:
 Things I want to add/change in the future:
 - to structure code more, make modules for routes and the api fetch (only if there is time)
-- Loading state
+- Loading state, ui skeleton, percieved performance
 - favorites list, with cache service worker
 
 ## npm packages

@@ -174,6 +174,7 @@ main section > a{
     height: 1.1em;
     align-self: center;
     color: rgb(255, 168, 7);
+    grid-area: 1/ 1 / 1 / 1;
 }
 
 main section div p{
@@ -202,7 +203,10 @@ main section div h2{
 main .Albuminfo{
     display: grid;
     justify-items: center;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
+}
+main .Albuminfo h1{
+    grid-area: 1 / 2 / 1 / 4;
 }
 
 main .Albuminfo div ul {
@@ -214,6 +218,15 @@ main .Albuminfo div ul {
 main .Albuminfo div{
     margin-bottom: 1em;
     text-align: center;
+    grid-row-start: 2;
+}
+
+main .Albuminfo div:first-of-type {
+    grid-area: 2 / 1 / 2 / 3;
+}
+
+main .Albuminfo div:last-of-type {
+    grid-area: 2 / 3 / 2 / 5;
 }
 
 /* ERROR STATE */
@@ -255,7 +268,7 @@ footer{
 
 /* responsive website */
 @media (max-width: 69em) {
-    main section {
+    main section:not(.Albuminfo) {
         grid-template-columns: 1fr 1fr;
     }
 
@@ -273,10 +286,23 @@ footer{
 
     main section,  main .Albuminfo{
         grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 0fr);
     }
 
     main section:not(.Albuminfo)  h1{
         grid-column: span 1;
         text-align: center;
+    }
+
+    main .Albuminfo h1{
+        grid-area: 2 / 1 / 2 / 1;
+    }
+
+    main .Albuminfo div:first-of-type {
+        grid-area: 3 / 1 / 3 / 1;
+    }
+    
+    main .Albuminfo div:last-of-type {
+        grid-area: 4 / 1 / 4 / 1;
     }
 }
