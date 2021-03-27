@@ -10,16 +10,6 @@ Album Library is a web app where you can find albums from your favourite artists
 ### Web App Link 🔗
 You can find the web app [here](https://album-library.herokuapp.com/). 
 
-### Wishlist:
-Things I want to add/change:
-- Make web app more user friendly and better design
-- refactor waterfall code to returning values
-- Loading state different in design and coding
-- A back link on detailpage to go back to search results from an artist
-
-### Process 📈
-The **process** of web app can be found [here](https://github.com/sanneduinkerx/progressive-web-apps-2021/wiki/Week-1---Server-Side-Rendering-%F0%9F%93%A1).
-
 ## How to install this project
 
 1. Clone this project 
@@ -39,12 +29,13 @@ The **process** of web app can be found [here](https://github.com/sanneduinkerx/
     npm run start
     ```
 
-4. If you make changes and want the server to restart itself when making changes:
+    or If you make changes and want the server to restart itself when making changes:
+
     ```
     npm run dev
     ```
 
-5. Go to localhost
+4. Go to localhost
     ```
     http://localhost:3002/
     ```
@@ -78,6 +69,19 @@ Things I want to add/change in the future:
 - Loading state
 - favorites list, with cache service worker
 
+## npm packages
+The npm packages i used in this project are:
+
+- For template engine: EJS 
+    To load a template in a certain path you can use res.render('templateName'), and you can give data with it to render server side and serve to client. For example you can give the fetched data from an API to the template, and with <%= data.name %> you can put it in the template and it wil render the right data.
+- Express: 
+    A web framework with feature for routing. And supports template engines such as EJS. for more info [click here](https://www.npmjs.com/package/express)
+- Node-fetch: 
+    to use fetch(url) to fetch data from lastFM API.
+- I also used buildscript and therefore i used **Gulp**, to build, combine and minify css and js files and put it in a public map to serve  on client side. I used:
+    - gulp concat - combine files
+    - gulp cssnano - minify css
+    - gulp uglify - minify js
 
 ## Sources
 Sources used to make this web app:
@@ -89,16 +93,10 @@ Sources used to make this web app:
 - Static files - [Express JS](https://expressjs.com/en/starter/static-files.html)
 - PWA Tutorial for Beginners #3 - The Web App Manifest [Youtube - The Net Ninja](https://www.youtube.com/watch?v=AlEdGOLhuM8)
 - Deploy your node express app on heroku - [dzone](https://dzone.com/articles/deploy-your-node-express-app-on-heroku-in-8-easy-s)
-<!-- - Getting started with compression in Node js - [Digital Ocean](https://www.digitalocean.com/community/tutorials/nodejs-compression) -->
 - Buildscript - getting started - [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start)
 - super simple gulp tutorial for beginners - [FreeCodeCamp](https://www.freecodecamp.org/news/super-simple-gulp-tutorial-for-beginners-45141974bfe8/)
-
-<!-- PUT IN HERE HOW TO DONWLOAD PROJECT AND RUN IT ON SERVER -->
-
-<!-- Document in your readme.md how you will get the server up and running; git clone && npm start -->
-
 <!-- 
-### Week 2 - Progressive Web App 🚀
+ ### Week 2 - Progressive Web App 🚀
 
 Goals: Convert application to a Progressive Web App
 
@@ -110,7 +108,7 @@ Goals: Convert application to a Progressive Web App
 
 Doel: Optimize the Critical Rendering Path   
 [Exercises](https://github.com/cmda-minor-web/progressive-web-apps-2021/blob/master/course/week-3.md)  
-[Critical Rendering Path - slides Declan Rek](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/cmd-2020-critical-rendering-path.pdf)
+[Critical Rendering Path - slides Declan Rek](https://github.com/cmda-minor-web/progressive-web-apps-1920/blob/master/course/cmd-2020-critical-rendering-path.pdf) -->
  -->
 
 <!-- Add a link to your live demo in Github Pages 🌐-->
