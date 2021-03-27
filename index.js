@@ -12,7 +12,7 @@ const port = process.env.PORT || 3002;
 
 //API URL:
 const endpoint = 'https://ws.audioscrobbler.com/2.0/?method=';
-const apiKey = process.env.API_KEY;
+const apiKey = '9445b881096d29d7c6de9f9d2eb6b50d';
 
 // setting ejs as the view engine
 app.set('view engine', 'ejs'); 
