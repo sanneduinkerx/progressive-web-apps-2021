@@ -1,13 +1,13 @@
-// module imported express - source: https://expressjs.com/en/starter/hello-world.html
 // server side rendering
+
+// modules imported 
 // require same as import, you can use import but thats from the latest version which isn't stable yet
 const express = require('express');
-const fetch = require('node-fetch'); // for usage: https://www.npmjs.com/package/node-fetch
+const fetch = require('node-fetch');
 require('dotenv').config();
 
 const app = express();
 //port to listen to in browser
-//source: https://dzone.com/articles/deploy-your-node-express-app-on-heroku-in-8-easy-s 
 const port = process.env.PORT || 3002; 
 
 //API URL:
@@ -16,9 +16,8 @@ const apiKey = process.env.API_KEY;
 
 // setting ejs as the view engine
 app.set('view engine', 'ejs'); 
-// you tell express to use static and look in public file
-// you can load the static files with express.static: http://localhost:3000/style.css
-// more info: https://expressjs.com/en/starter/static-files.html
+// you tell express to use static and look in public folder
+// you can load the static files with express.static: http://localhost:3002/style.css
 //to serve static files such as css or images use this:
 app.use(express.static('src'));
 
@@ -26,7 +25,7 @@ app.use(express.static('src'));
 // get -> an http request method
 // the '/' is the path on server - when that route matches the function in the route gets executed
 app.get('/', function (req, res) {
-  //renders ejs template home
+  //the (res) respond: renders ejs template home, from the view folder
   res.render('home');
 })
 
@@ -34,38 +33,41 @@ app.get('/', function (req, res) {
 app.get('/results', function (req, res) {
   //method, getting top albums and filling url 
   const method = 'artist.gettopalbums'; 
-  // req.query = src: https://www.digitalocean.com/community/tutorials/nodejs-req-object-in-expressjs#:~:text=great%2Dwhite%22%20.-,The%20req.,requests%20in%20the%20Express%20server.
-  // req.query express will search for a match ArtistKeyword within the url
+  // request, req.query express will search for a match query: ArtistKeyword within the url
+  // when user searches for a certain artist express requests that artist from the url with req.query
   const url = `${endpoint}${method}&artist=${req.query.ArtistKeyword}&api_key=${apiKey}&format=json`; 
 
-  //redirect when it only says /results -> which also is also a result with an artist name undefined, which is what we don't want
+  // redirect when the url has only the path /results
+  // which also is also a result with an artist name undefined, which is what we don't want
   // so if artistKeyword is undefined
   if(!req.query.ArtistKeyword){
+    // then redirect to home
+    // so when user for example pushes enter without filling in the search bar it doesnt search for undefined, but does nothing in the users eyes
     res.redirect('/');
   } else{
       // fetch data with url, albums from a specific artist 
-      // later in modules, to clean code and more structure -> if time 
       fetch(url)
-      .then(response => response.json())
-      .then(data => { 
-        //filter apiData - all objects without an image gets filtered out
-        //object.values, source: https://stackoverflow.com/questions/55458675/filter-is-not-a-function
-        //for better performance, smallest image from the API = there were 4 images i picked the smallest one
-        const filteredData = Object.values(data.topalbums.album).filter(noImg => noImg.image[0]['#text'] != "");
-        console.log(filteredData)
-        // render will look in the views folder to show view to user
-        res.render('albums', {
-          // giving data to objects to use in template
-          albums: filteredData,
-          artistName: filteredData[0].artist.name
-          })
+        .then(response => response.json())
+        .then(data => { 
+
+          //filter apiData - all objects without an image gets filtered out
+          //object.values, source: https://stackoverflow.com/questions/55458675/filter-is-not-a-function
+          //for better performance -> smallest image from the API = there were 4 images i picked the smallest one
+          const filteredData = Object.values(data.topalbums.album).filter(noImg => noImg.image[0]['#text'] != "");
+
+          // render will look in the views folder to show view to user, the albums page
+          res.render('albums', {
+            // giving data to objects to use in template
+            albums: filteredData,
+            artistName: filteredData[0].artist.name
+            })
         })
-        .catch(() => {
-          // catch error when something goes wrong -> error state
-          //handle error here
-          res.render('error', {
-            error: 'We could not find the artist you were looking for, maybe try something else',
-          })
+          .catch(() => {
+            // catch error when something goes wrong -> error state
+            //handle error here
+            res.render('error', {
+              error: 'We could not find the artist you were looking for, maybe try something else',
+            })
         })
       }
 }) 
@@ -83,8 +85,7 @@ app.get('/details/:albumName/:artistName', function (req, res) {
       .then(response => response.json())
       .then(data => {
 
-        // in module later
-        // splitting and retrieving pieces from string //
+        // splitting and retrieving pieces from string
         // source: https://www.w3schools.com/js/js_string_methods.asp
         const summaryText = data.album.wiki.summary;
         //finding the position where the link element starts in string summary 
