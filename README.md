@@ -61,6 +61,7 @@ Things I want to add/change in the future:
 - to structure code more, make modules for routes and the api fetch (only if there is time)
 - Loading state, ui skeleton, percieved performance
 - favorites list, with cache service worker
+- load whole web app offline
 
 ## npm packages
 The npm packages i used in this project are:
@@ -89,6 +90,7 @@ Sources used to make this web app:
 - Buildscript - getting started - [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start)
 - super simple gulp tutorial for beginners - [FreeCodeCamp](https://www.freecodecamp.org/news/super-simple-gulp-tutorial-for-beginners-45141974bfe8/)
 - buildscript npm script - [youtube](https://www.youtube.com/watch?v=Ajt2-fWRwOk)
+- beginners guide to PWA - [NetNinja - youtube](https://www.youtube.com/watch?v=4XT23X0Fjfk&list=PL4cUxeGkcC9gTxqJBcDmoi5Q2pzDusSL7)
 
 <!-- Maybe a table of contents here? 📚 -->
 

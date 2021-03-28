@@ -8,7 +8,7 @@
     "display": "standalone",
     "background_color": "#2b2b2b",
     "theme_color": "#22001b",
-    "orientation": "landscape",
+    "orientation": "portrait",
     "icons": [
       {
         "src": "icons/albumLibraryIcon-16x16.png",
