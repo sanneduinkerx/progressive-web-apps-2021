@@ -62,6 +62,7 @@ Things I want to add/change in the future:
 - Loading state, ui skeleton, percieved performance
 - favorites list, with cache service worker
 - load whole web app offline
+- cache-control max-age for files for better performance
 
 ## npm packages
 The npm packages i used in this project are:
