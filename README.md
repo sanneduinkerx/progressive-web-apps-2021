@@ -26,7 +26,7 @@ You can find the web app [here](https://album-library.herokuapp.com/).
 
 3. Start the server:
     ```
-    npm run prestart
+    npm run start
     ```
 
 4. Go to localhost
