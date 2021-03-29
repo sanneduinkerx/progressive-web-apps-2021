@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/sanneduinkerx/progressive-web-apps-2021#readme",
   "dependencies": {
+    "compression": "^1.7.4",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "gulp": "^4.0.2",

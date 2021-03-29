@@ -4,6 +4,8 @@
 // require same as import, you can use import but thats from the latest version which isn't stable yet
 const express = require('express');
 const fetch = require('node-fetch');
+//imported compression to compress files via network
+const compression = require('compression');
 
 const app = express();
 //port to listen to in browser
@@ -20,6 +22,8 @@ app.set('view engine', 'ejs');
 // you can load the static files with express.static: http://localhost:3002/style.css
 //to serve static files such as css or images use this:
 app.use(express.static('public'));
+//compresses all responses
+app.use(compression());
 
 // starting page, req -> request and a respond
 // get -> an http request method
